@@ -1,16 +1,24 @@
 title = "Steve Good"
 languageCode = "en-us"
 baseurl = "http://www.stevegood.rocks/"
-theme = "hugo_theme_robust"
+theme = "casper"
 MetaDataFormat = "yaml"
 
-[Params]
-  GoogleAnalyticsUserID = "UA-26916811-1"
-  disqusShortname = "stevegood"
-  comment = true
+DisqusShortname = "stevegood"
+
+[params]
+  description = "Developer - Photographer - Human"
+  cover = "images/cover.jpg"
   author = "Steve Good"
-  avatar = "/images/steve-avatar.png"
-  description = "Photographer, Developer, Human"
+  authorlocation = "San Diego, CA"
+  authorwebsite = "http://stevegood.rocks"
+  bio= "Professional software engineer, amatuer photographer, and part-time mountain biker."
+  logo = "images/steve-avatar-dark.png"
+  googleAnalyticsUserID = "UA-26916811-1"
+  githubName = "stevegood"
+  twitterName = "stevegood"
+  # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
+  hideHUGOSupport = true
 
 [[menu.main]]
   name = "Home"
