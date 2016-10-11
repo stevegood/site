@@ -14,6 +14,7 @@ script:
 - echo "https://stevegood:${GH_TOKEN}@github.com" > .git/credentials
 - cd ..
 - hugo -d ./stevegood.github.io
+- cd stevegood.github.io
 - git status
 - git add .
 - git commit -m "Updated content"

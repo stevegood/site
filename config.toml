@@ -11,6 +11,7 @@ disqusShortname = "stevegood"
   author = "Steve Good"
   avatar = "/images/steve-avatar.png"
   description = "Photographer, Developer, Human"
+  comment = true
 
 [[menu.main]]
   name = "Home"
