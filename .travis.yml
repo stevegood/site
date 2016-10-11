@@ -10,7 +10,7 @@ before_script:
 script:
 - git clone https://github.com/stevegood/stevegood.github.io.git
 - git config credential.helper "store --file=stevegood.github.io/.git/credentials"
-- echo "https://${GH_TOKEN}:@github.com" > stevegood.github.io/.git/credentials
+- echo "https://stevegood:${GH_TOKEN}@github.com" > stevegood.github.io/.git/credentials
 - hugo -d ./stevegood.github.io
 - cd stevegood.github.io
 - git add .
