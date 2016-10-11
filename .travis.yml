@@ -4,6 +4,9 @@ go:
 - tip
 install:
 - go get -v github.com/spf13/hugo
+before_script:
+  - git config --global user.email "sgood@lanctr.com"
+  - git config --global user.name "Steve Good"
 script:
 - git clone https://github.com/stevegood/stevegood.github.io.git
 - git config credential.helper "store --file=stevegood.github.io/.git/credentials"
