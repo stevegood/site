@@ -1,0 +1,15 @@
+language: go
+go:
+  - 1.7.1
+  - tip
+install:
+  - go get -v github.com/spf13/hugo
+script:
+  - hugo
+  - git clone git@github.com:stevegood/stevegood.github.io.git
+  - hugo -d ./stevegood.github.io
+  - cd stevegood.github.io
+  - git add -m "Updated content"
+  - git push origin master
+  - cd ..
+  - rm -rf stevegood.github.io
