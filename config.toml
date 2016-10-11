@@ -21,10 +21,10 @@ DisqusShortname = "stevegood"
   hideHUGOSupport = true
 
 [[menu.main]]
-  name = "Home"
+  name = "Blog"
   url = "/"
   weight = -200
-# [[menu.main]]
-#   name = "About"
-#   url = "/about/"
-#   weight = -180
+[[menu.main]]
+  name = "About Me"
+  url = "/about"
+  weight = -180
