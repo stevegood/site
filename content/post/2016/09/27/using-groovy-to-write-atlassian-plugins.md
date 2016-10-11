@@ -114,4 +114,4 @@ You can now go through your files are remove things like semicolons, parenthesis
 
 Once you have JIRA running you should be able to see that your plugin has loaded from the [Manage Addons](http://localhost:2990/jira/plugins/servlet/upm) screen.  You should see something similar to the this:
 
-![manage-addons-my-groovy-plugin](/images/manage-addons-my-groovy-plugin.png)
+![manage-addons-my-groovy-plugin](/images/post/manage-addons-my-groovy-plugin.png)
