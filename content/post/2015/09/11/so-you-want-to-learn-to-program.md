@@ -3,7 +3,7 @@ date: 2015-09-11T20:33:00Z
 title: So You Want to Learn to Program?
 draft: false
 slug: so-you-want-to-learn-to-program
-image: post/which-programming-language-should-i-learn-first-infographic.png
+image: images/post/which-programming-language-should-i-learn-first-infographic.png
 author: Steve Good
 ---
 

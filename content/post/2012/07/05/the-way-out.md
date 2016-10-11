@@ -2,7 +2,7 @@
 author: Steve Good
 date: 2012-07-05
 draft: false
-image: post/the-way-out.jpg
+image: images/post/the-way-out.jpg
 tags:
 - photography
 - grails

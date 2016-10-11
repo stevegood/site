@@ -3,7 +3,7 @@ date: 2012-06-15
 title: Some Kind of Date and Explore Fort Worth
 draft: false
 slug: some-kind-of-date-and-explore-fort-worth
-image: post/some-kind-of-date.jpg
+image: images/post/some-kind-of-date.jpg
 author: Steve Good
 ---
 

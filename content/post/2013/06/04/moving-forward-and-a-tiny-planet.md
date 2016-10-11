@@ -2,7 +2,7 @@
 author: Steve Good
 date: 2013-06-04
 draft: false
-image: post/tiny-planet-2013.jpg
+image: images/post/tiny-planet-2013.jpg
 title: Moving Forward and a Tiny Planet
 ---
 

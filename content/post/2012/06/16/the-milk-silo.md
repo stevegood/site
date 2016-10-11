@@ -1,7 +1,7 @@
 ---
 draft: false
 slug: the-milk-silo
-image: post/the-milk-silo.jpg
+image: images/post/the-milk-silo.jpg
 author: Steve Good
 date: 2012-06-16
 title: The Milk Silo

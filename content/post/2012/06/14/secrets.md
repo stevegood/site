@@ -3,7 +3,7 @@ date: 2012-06-14
 title: Secrets
 draft: false
 slug: secrets
-image: post/secrets.jpg
+image: images/post/secrets.jpg
 author: Steve Good
 ---
 

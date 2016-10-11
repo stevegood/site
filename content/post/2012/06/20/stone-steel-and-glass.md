@@ -3,7 +3,7 @@ author: Steve Good
 date: 2012-06-20
 draft: false
 title: Stone Steel and Glass
-image: post/stone-steel-and-glass.jpg
+image: images/post/stone-steel-and-glass.jpg
 tags:
   - photography
   - hdr

@@ -2,7 +2,7 @@
 date: 2012-06-19
 draft: false
 title: The Trumpets Sound
-image: post/the-trumpets-sound.jpg
+image: images/post/the-trumpets-sound.jpg
 tags:
   - photography
   - hdr

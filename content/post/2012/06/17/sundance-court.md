@@ -1,6 +1,6 @@
 ---
 slug: sundance-court
-image: post/sundance-court.jpg
+image: images/post/sundance-court.jpg
 author: Steve Good
 date: 2012-06-17
 title: Sundance Court

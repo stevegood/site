@@ -1,6 +1,6 @@
 ---
 author: Steve Good
-image: post/what-big-teeth-you-have.jpg
+image: images/post/what-big-teeth-you-have.jpg
 categories:
 - post
 date: 2012-06-18

@@ -1,6 +1,6 @@
 ---
 slug: grails-smugmug-and-my-latest-photo
-image: post/the-fae-portal.jpg
+image: images/post/the-fae-portal.jpg
 author: Steve Good
 date: 2012-06-13
 title: Grails, SmugMug and My Latest Photo

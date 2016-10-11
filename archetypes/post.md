@@ -1,7 +1,7 @@
 ---
 author: Steve Good
 draft: false
-image: post/default.png
+image: images/post/default.png
 tags:
   - post
 ---
