@@ -10,7 +10,8 @@ script:
 - echo "https://${GH_TOKEN}:@github.com" > stevegood.github.io/.git/credentials
 - hugo -d ./stevegood.github.io
 - cd stevegood.github.io
-- git add -m "Updated content"
+- git add .
+- git commit -m "Updated content"
 - git push origin master
 - cd ..
 - rm -rf stevegood.github.io
