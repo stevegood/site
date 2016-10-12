@@ -10,8 +10,10 @@ install:
 - git config --global user.name "Steve Good"
 script:
 - git clone https://github.com/stevegood/stevegood.github.io.git
-- git config credential.helper "store --file=stevegood.github.io/.git/credentials"
-- echo "https://stevegood:${GH_TOKEN}@github.com" > stevegood.github.io/.git/credentials
+- cd stevegood.github.io
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://stevegood:${GH_TOKEN}@github.com" > .git/credentials
+- cd ..
 - hugo -d stevegood.github.io
 - cd stevegood.github.io
 - git status
