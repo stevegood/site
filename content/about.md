@@ -4,6 +4,7 @@ date: 2016-10-11T14:11:01-07:00
 title: About Steve
 comments: false
 share: false
+image: images/steve-avatar-dark.png
 ---
 
 Connect with me on social media.
