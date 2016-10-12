@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# setup the environment
+go get -v github.com/spf13/hugo
+git config --global user.email "sgood@lanctr.com"
+git config --global user.name "Steve Good"
+
+# clone the github pages repo
+git clone https://github.com/stevegood/stevegood.github.io.git
+
+# inject the credentials
+git config credential.helper "store --file=stevegood.github.io/.git/credentials"
+echo "https://stevegood:${GH_TOKEN}@github.com" > stevegood.github.io/.git/credentials
+
+# build the content
+hugo -d stevegood.github.io
+
+# publish the content
+cd stevegood.github.io
+git status
+git add .
+git commit -m "Updated content"
+git push origin master
