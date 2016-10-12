@@ -1,25 +1,20 @@
 language: go
 go:
 - 1.7.1
+env:
+  global:
+    secure: wubgHkMpY9bxSMZALkV1GWs4GpfMBDjXRYiPMOaNthcfIkUQ6sZwgKYyUv5SWzYH2XiUX3Hnag5P1hLsFyP41DpaZyJfSByAFlD5uYtB/XUCz8EER0+gQCw7BS8nHh2BvTvc+2g47mSyBjdkA/ZdACdFSLy/0A7X4NcBqNJVUtN4AxCNXDypBI9elZ6xu02sCYQyDA6Qq0MFcO9Z7aJ5V2lEAkQcyH9XD/rELETKlFhw+e3hi6CtWvUgP37Gq++wA5kDR4V+/Xk8iKYSNXgifSvnoJg5RKklB9Pa7iDeaZINJDHZyrj6ZV2VVimxWJoQo7JiO5FV495b7owrCPrRewK5m+7btxN6HxhB4p1sTrQfQQ/C7tWquKZLfIW4wb+pHufi6fnZ2vwrEVl3eepygrywNBsI3BWR6NWPOa3q3x5QdrGeS5UAAEeq97PmlmBxlNYNgf9vvlEW5nn04HCj8XL66+6u7FR6YdZNuYEstRvAAceXRdcFcnQzIDkPw/ClQl8GfQIl2ba2fjeKVXxJrDTW9vaK4WA+F6481xt36YYCQUVDxOj7wJQSetPhzw7H+Q5D6y6BgnUpj29ofnIAqAmfJJ0jkibk95MHQTAp2Qjbi8PXytT2OSNEb/sszBCjxjSGoTyzuocOucxR9pi3Fb7GVjR5bb0HYYKWa+YZwGE=
 install:
 - go get -v github.com/spf13/hugo
-before_script:
 - git config --global user.email "sgood@lanctr.com"
 - git config --global user.name "Steve Good"
 script:
 - git clone https://github.com/stevegood/stevegood.github.io.git
-- cd stevegood.github.io
-- git config credential.helper "store --file=.git/credentials"
-- echo "https://stevegood:${GH_TOKEN}@github.com" > .git/credentials
-- cd ..
-- hugo -d ./stevegood.github.io
+- git config credential.helper "store --file=stevegood.github.io/.git/credentials"
+- echo "https://stevegood:${GH_TOKEN}@github.com" > stevegood.github.io/.git/credentials
+- hugo -d stevegood.github.io
 - cd stevegood.github.io
 - git status
 - git add .
 - git commit -m "Updated content"
 - git push origin master
-- cd ..
-- rm -rf stevegood.github.io
-env:
-  global:
-    secure: wubgHkMpY9bxSMZALkV1GWs4GpfMBDjXRYiPMOaNthcfIkUQ6sZwgKYyUv5SWzYH2XiUX3Hnag5P1hLsFyP41DpaZyJfSByAFlD5uYtB/XUCz8EER0+gQCw7BS8nHh2BvTvc+2g47mSyBjdkA/ZdACdFSLy/0A7X4NcBqNJVUtN4AxCNXDypBI9elZ6xu02sCYQyDA6Qq0MFcO9Z7aJ5V2lEAkQcyH9XD/rELETKlFhw+e3hi6CtWvUgP37Gq++wA5kDR4V+/Xk8iKYSNXgifSvnoJg5RKklB9Pa7iDeaZINJDHZyrj6ZV2VVimxWJoQo7JiO5FV495b7owrCPrRewK5m+7btxN6HxhB4p1sTrQfQQ/C7tWquKZLfIW4wb+pHufi6fnZ2vwrEVl3eepygrywNBsI3BWR6NWPOa3q3x5QdrGeS5UAAEeq97PmlmBxlNYNgf9vvlEW5nn04HCj8XL66+6u7FR6YdZNuYEstRvAAceXRdcFcnQzIDkPw/ClQl8GfQIl2ba2fjeKVXxJrDTW9vaK4WA+F6481xt36YYCQUVDxOj7wJQSetPhzw7H+Q5D6y6BgnUpj29ofnIAqAmfJJ0jkibk95MHQTAp2Qjbi8PXytT2OSNEb/sszBCjxjSGoTyzuocOucxR9pi3Fb7GVjR5bb0HYYKWa+YZwGE=

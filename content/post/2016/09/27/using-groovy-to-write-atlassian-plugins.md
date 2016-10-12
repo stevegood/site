@@ -10,6 +10,8 @@ tags:
 - gmavenplus
 draft: false
 author: Steve Good
+aliases:
+- /2016/09/27/using-groovy-to-write-atlassian-plugins.html
 ---
 
 Writing plugins for Atlassian products is pretty straight forward (once you get passed the insanely out-of-date documentation).  But using Java can be overly verbose and less flexible than some other more modern languages.  There are examples of writing plugins using [Scala](https://bitbucket.org/ssaasen/atlassian-scala-example-plugin) and [JRuby](https://bitbucket.org/ssaasen/atlassian-jruby-example-plugin) out there but documentation for using [Groovy](http://groovy-lang.org/) seems to be a bit of a black hole.  Since Groovy is my JVM language of choice, I have decided to document the process and give a simple example.
