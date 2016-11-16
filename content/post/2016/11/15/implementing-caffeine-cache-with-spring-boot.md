@@ -47,13 +47,13 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
 class TimeController {
-    
+
     @RequestMapping
     def index(Model model) {
         model.addAllAttributes now: (new Date().time)
         'index'
     }
-    
+
 }
 ```
 
@@ -166,7 +166,7 @@ class TimeService {
     long getTimeNow() {
         new Date().time
     }
-    
+
     @Cacheable('timeCached')
     long getTimeCached() {
         timeNow
@@ -204,7 +204,7 @@ Having a cache that lives for the life of the application might fit your use cas
 In your ```build.gradle``` file, add the following line to the _dependencies_ block.
 
 ```groovy
-compile 'com.github.ben-manes.caffeine:caffeine:2.3.5'
+compile 'com.github.ben-manes.caffeine:caffeine'
 ```
 
 Maven users can add the following to their ```pom.xml```.
@@ -213,7 +213,6 @@ Maven users can add the following to their ```pom.xml```.
 <dependency>
     <groupId>com.github.ben-manes.caffeine</groupId>
     <artifactId>caffeine</artifactId>
-    <version>2.3.5</version>
 </dependency>
 ```
 
