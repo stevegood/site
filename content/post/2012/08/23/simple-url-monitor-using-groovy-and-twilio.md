@@ -45,7 +45,7 @@ It should be no surprise that I chose to use Groovy for this project.  For me, G
 
 Building the script was a snap.  One of the cool things about shell scripting is that you are able to specify the binary that you want to use to execute your script. So by adding a single line of declaration I was able to create a script that can run as if it was a native executable.
 
-```
+```bash
 #!/usr/bin/env groovy
 ```
 

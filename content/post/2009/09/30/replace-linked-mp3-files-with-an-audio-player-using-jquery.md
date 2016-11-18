@@ -12,7 +12,7 @@ A client of mine posts links to recorded audio files in a blog like structure.  
 
 I chose the popular [WordPress Audio Player](http://wpaudioplayer.com/standalone) and jQuery to assist me with this.  The jQuery code is pretty straight forward.  I loop over all anchor tags that have an href value that ends in .mp3 and swap out the link with the flash player, dynamically pointing the player at the audio file on each pass.  The result is that I can create a unique audio player for each linked mp3 file very quickly.
 
-```language-html
+```html
 <script src="/js/audio-player.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){

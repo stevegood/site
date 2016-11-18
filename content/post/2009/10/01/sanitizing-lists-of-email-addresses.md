@@ -13,22 +13,22 @@ I ran across an exception today where an email address was not being validated o
 
 The method is pretty simple.  It loops over the supplied list, applies some regex to locate the first email address within the string, appends it to a new list that is returned.  See below.
 
-```coldfusion
+```xml
 <cffunction name="sanitizeEmailList" access="public" returnType="String" output="false">
-    <cfargument name="emailList" type="String" required="true" />
+  <cfargument name="emailList" type="String" required="true" />
 
-		<cfset var local = {} />
-    <cfset local.email = '' />
-    <cfset local.RegEx = "[a-z0-9!##$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!##$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"/>
+	<cfset var local = {} />
+  <cfset local.email = '' />
+  <cfset local.RegEx = "[a-z0-9!##$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!##$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"/>
 
-		<cfloop list="#arguments.emailList#" index="local.i">
-        <cfset local.address = ReMatch(local.RegEx,local.i)/>
-        <cfif ArrayLen(local.address)>
-            <cfset local.email = ListAppend(local.email,local.address[1]) />
-        </cfif>
-    </cfloop>
+  <cfloop list="#arguments.emailList#" index="local.i">
+    <cfset local.address = ReMatch(local.RegEx,local.i)/>
+    <cfif ArrayLen(local.address)>
+      <cfset local.email = ListAppend(local.email,local.address[1]) />
+    </cfif>
+  </cfloop>
 
-		<cfreturn local.email />
+  <cfreturn local.email />
 </cffunction>
 ```
 This is by no means an excuse to not validate form input, but it does help me get through some pretty ugly legacy code.

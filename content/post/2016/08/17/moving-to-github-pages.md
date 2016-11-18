@@ -18,6 +18,6 @@ There are a number of advantages to using GitHub Pages over a blogging applicati
 
 ## Moar Posts?
 
-No, probably not yet.  I have a whole lot going on in my life right now that is taking up the vast majority of my time.  However, I will certainly feel better about not blogging as often since it won't be costing my anything ( *have I harped of the cost enough yet?* ).
+No, probably not yet.  I have a whole lot going on in my life right now that is taking up the vast majority of my time.  However, I will certainly feel better about not blogging as often since it won't be costing my anything (_have I harped on the cost enough yet?_).
 
 More to come later (and I hope to figure out how to get comments added).

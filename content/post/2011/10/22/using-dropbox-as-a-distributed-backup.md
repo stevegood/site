@@ -19,159 +19,193 @@ The steps outlined here were put together after reading through a couple of [oth
 
 1. Install build-essentials and gcc
 
-        sudo apt-get install build-essential gcc
+    ```bash
+    sudo apt-get install build-essential gcc
+    ```
 
 2. Download Python 2.5.5 (This seems to be the officially supported version)
 
-        wget http://www.python.org/ftp/python/2.5.5/Python-2.5.5.tgz
+    ```bash
+    wget http://www.python.org/ftp/python/2.5.5/Python-2.5.5.tgz
+    ```
 
 3. Extract
 
-        tar -xvzf Python-2.5.5.tgz
+    ```bash
+    tar -xvzf Python-2.5.5.tgz
+    ```
 
 4. Compile and install
 
-        cd Python-2.5.5
-        ./configure --prefix=/usr/local/python2.5
-        make
-        sudo make install
-        sudo ln -s /usr/local/python2.5/bin/python /usr/bin/python2.5
+    ```bash
+    cd Python-2.5.5
+    ./configure --prefix=/usr/local/python2.5
+    make
+    sudo make install
+    sudo ln -s /usr/local/python2.5/bin/python /usr/bin/python2.5
+    ```
 
 ## Install Dropbox
 
 1. Switch to root user
 
-        sudo -s
+    ```bash
+    sudo -s
+    ```
 
 2. Create dropbox user and group and set the user's home to be** ```/etc/dropbox```
 
-        groupadd dropbox
-        useradd -r -d /etc/dropbox -g dropbox -s /bin/false dropbox
+    ```bash
+    groupadd dropbox
+    useradd -r -d /etc/dropbox -g dropbox -s /bin/false dropbox
+    ```
 
 3. Download the 64-bit Dropbox binary
 
-        wget -O /tmp/dropbox.tar.gz http://www.dropbox.com/download/?plat=lnx.x86_64
+    ```bash
+    wget -O /tmp/dropbox.tar.gz http://www.dropbox.com/download/?plat=lnx.x86_64
+    ```
 
 4. Create the dropbox user's home and set the ownership and permissions
 
-        mkdir -p /usr/local/dropbox /etc/dropbox
-        chown dropbox.dropbox /etc/dropbox
-        chmod 700 /etc/dropbox
+    ```bash
+    mkdir -p /usr/local/dropbox /etc/dropbox
+    chown dropbox.dropbox /etc/dropbox
+    chmod 700 /etc/dropbox
+    ```
 
 5. Extract the dropbox binaries
 
-        tar xvzf /tmp/dropbox.tar.gz -C /usr/local/dropbox --strip 1
+    ```bash
+    tar xvzf /tmp/dropbox.tar.gz -C /usr/local/dropbox --strip 1
+    ```
 
 6. Remove the dropbox archive
 
-        rm /tmp/dropbox.tar.gz
+    ```bash
+    rm /tmp/dropbox.tar.gz
+    ```
 
 7. Switch to the dropbox user
 
-        su -l dropbox -s /bin/bash
+    ```bash
+    su -l dropbox -s /bin/bash
+    ```
 
 8. Set the user's permissions
 
-        umask 0027
+    ```bash
+    umask 0027
+    ```
 
 9. Execute the dropbox daemon _(Note: A URL will be repeated in the terminal window if the install machine is not registered to an account. Navigate to the URL (while logged in under the account you wish to link) and wait for the prompt to notify you that you are now linked. You'll get a simple welcome message.)_
 
+    ```bash
 		/usr/local/dropbox/dropboxd
+    ```
 
 10. Terminate the dropbox daemon with ```ctrl+c```
 11. Log out of the dropbox user
 
-        exit
+    ```bash
+    exit
+    ```
 
 12. Create the control script
 
-        cat >> EOF | sed -e "s,%,$,g" &gt;/etc/init.d/dropbox
-        ### BEGIN INIT INFO
-        # Provides:          dropbox
-        # Required-Start:    $local_fs
-        # Required-Stop:     $local_fs
-        # Default-Start:     2 3 4 5
-        # Default-Stop:      0 1 6
-        # Short-Description: starts the dropbox service
-        # Description:       starts dropbox using start-stop-daemon
-        ### END INIT INFO
+    ```bash
+    cat >> EOF | sed -e "s,%,$,g" >/etc/init.d/dropbox
+    ### BEGIN INIT INFO
+    # Provides:          dropbox
+    # Required-Start:    $local_fs
+    # Required-Stop:     $local_fs
+    # Default-Start:     2 3 4 5
+    # Default-Stop:      0 1 6
+    # Short-Description: starts the dropbox service
+    # Description:       starts dropbox using start-stop-daemon
+    ### END INIT INFO
 
-        DROPBOX_USERS="dropbox"
-        DAEMON=/usr/local/dropbox/dropbox
-        unset DISPLAY
+    DROPBOX_USERS="dropbox"
+    DAEMON=/usr/local/dropbox/dropbox
+    unset DISPLAY
 
-        start() {
-            echo "Starting dropbox..."
-            for dbuser in %DROPBOX_USERS; do
-                HOMEDIR=%(getent passwd %dbuser | cut -d: -f6)
-                if [ -x %DAEMON ]; then
-                    HOME="%HOMEDIR" start-stop-daemon -b -o -c %dbuser -S -u %dbuser -x %DAEMON
-                fi
-            done
-        }
+    start() {
+        echo "Starting dropbox..."
+        for dbuser in %DROPBOX_USERS; do
+            HOMEDIR=%(getent passwd %dbuser | cut -d: -f6)
+            if [ -x %DAEMON ]; then
+                HOME="%HOMEDIR" start-stop-daemon -b -o -c %dbuser -S -u %dbuser -x %DAEMON
+            fi
+        done
+    }
 
-        stop() {
-            echo "Stopping dropbox..."
-            for dbuser in %DROPBOX_USERS; do
-                HOMEDIR=%(getent passwd %dbuser | cut -d: -f6)
-                if [ -x %DAEMON ]; then
-                    start-stop-daemon -o -c %dbuser -K -u %dbuser -x %DAEMON
-                fi
-            done
-        }
+    stop() {
+        echo "Stopping dropbox..."
+        for dbuser in %DROPBOX_USERS; do
+            HOMEDIR=%(getent passwd %dbuser | cut -d: -f6)
+            if [ -x %DAEMON ]; then
+                start-stop-daemon -o -c %dbuser -K -u %dbuser -x %DAEMON
+            fi
+        done
+    }
 
-        status() {
-            for dbuser in %DROPBOX_USERS; do
-                dbpid=%(pgrep -u %dbuser dropbox)
-                if [ -z %dbpid ] ; then
-                    echo "dropboxd for USER %dbuser: not running."
-                else
-                    echo "dropboxd for USER %dbuser: running (pid %dbpid)"
-                fi
-            done
-        }
+    status() {
+        for dbuser in %DROPBOX_USERS; do
+            dbpid=%(pgrep -u %dbuser dropbox)
+            if [ -z %dbpid ] ; then
+                echo "dropboxd for USER %dbuser: not running."
+            else
+                echo "dropboxd for USER %dbuser: running (pid %dbpid)"
+            fi
+        done
+    }
 
 
-        case "%1" in
-          start)
-            start
-            sleep 1
-            status
-            ;;
+    case "%1" in
+      start)
+        start
+        sleep 1
+        status
+        ;;
 
-          stop)
-            stop
-            sleep 1
-            status
-            ;;
+      stop)
+        stop
+        sleep 1
+        status
+        ;;
 
-          restart|reload|force-reload)
-            stop
-            start
-            sleep 1
-            status
-            ;;
+      restart|reload|force-reload)
+        stop
+        start
+        sleep 1
+        status
+        ;;
 
-          status)
-            status
-            ;;
+      status)
+        status
+        ;;
 
-          *)
-            echo "Usage: /etc/init.d/dropbox {start|stop|reload|force-reload|restart|status}"
-            exit 1
+      *)
+        echo "Usage: /etc/init.d/dropbox {start|stop|reload|force-reload|restart|status}"
+        exit 1
 
-        esac
+    esac
 
-        exit 0
-        EOF
+    exit 0
+    EOF
+    ```
 
 13. Allow the control script to me executed and set it to autostart
 
-        chmod a+x /etc/init.d/dropbox
-        update-rc.d dropbox defaults
+    ```bash
+    chmod a+x /etc/init.d/dropbox
+    update-rc.d dropbox defaults
+    ```
 
 14. Start dropbox
 
-        /etc/init.d/dropbox start
+    ```bash
+    /etc/init.d/dropbox start
+    ```
 
-You should now have Dropbox running as a service on your server. All that's left is to create your cron jobs that run your backup scripts and have those backup files placed into the /etc/dropbox/Dropbox folder.
+You should now have Dropbox running as a service on your server. All that's left is to create your cron jobs that run your backup scripts and have those backup files placed into the _/etc/dropbox/Dropbox_ folder.
