@@ -1,7 +1,9 @@
 ---
 author: Steve Good
-draft: false
+draft: true
 image: images/post/default.png
 tags:
-  - post
+- post
+type: post
+description: A nice grouping of words that turn into something interesting to read.
 ---

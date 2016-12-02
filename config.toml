@@ -11,13 +11,13 @@ DisqusShortname = "stevegood"
   cover = "images/cover.jpg"
   author = "Steve Good"
   authorlocation = "San Diego, CA"
+  authorlocationLink = "https://www.google.com/maps/place/San+Diego,+CA/@32.8244745,-117.2352455,11z/data=!3m1!4b1!4m5!3m4!1s0x80d9530fad921e4b:0xd3a21fdfd15df79!8m2!3d32.715738!4d-117.1610838"
   authorwebsite = "http://stevegood.rocks"
   bio= "Professional software engineer, amatuer photographer, and part-time mountain biker."
   logo = "images/steve-avatar-dark.png"
   googleAnalyticsUserID = "UA-26916811-1"
   githubName = "stevegood"
   twitterName = "stevegood"
-  # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
   hideHUGOSupport = true
 
 [[menu.main]]

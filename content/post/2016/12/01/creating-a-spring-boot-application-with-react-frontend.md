@@ -9,6 +9,7 @@ tags:
 - JavaScript
 - Groovy
 - Gradle
+type: post
 title: Lets build a Spring Boot app with a React UI!
 description: Or, "OMG why was this so difficult to figure out the first time?"
 ---

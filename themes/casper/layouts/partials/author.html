@@ -3,7 +3,9 @@
 {{$authorname := or $author.name .Site.Params.author }}
 {{$authorbio := or $author.bio .Site.Params.bio }}
 {{$authorlocation := or $author.location .Site.Params.authorlocation }}
-{{$authorwebsite := or $author.website .Site.Params.authorwebsite }}
+{{$authorlocationLink := or $author.locationLink .Site.Params.authorlocationLink }}
+{{$twitterName := or $author.twitterName .Site.Params.twitterName }}
+{{$githubName := or $author.githubName .Site.Params.githubName }}
 <section class="author">
   <h4><a href="{{.Site.BaseURL}}">{{$authorname}}</a></h4>
   {{if $authorbio}}
@@ -12,8 +14,25 @@
   <p>Read <a href="{{.Site.BaseURL}}">more posts</a> by this author.</p>
   {{end}}
   <div class="author-meta">
-    {{with $authorlocation}}<span class="author-location icon-location">{{.}}</span>{{end}}
-    {{with $authorwebsite}}<span class="author-link icon-link"><a href="{{.}}">{{.}}</a></span>{{end}}
+    {{with $authorlocation}}
+    <span class="author-location icon-location">
+      <a href="{{ $authorlocationLink }}" target="_blank">
+        {{.}}
+      </a>
+    </span>
+    {{end}}
+
+    {{with $twitterName}}
+    <span class="twitter-link icon-twitter">
+      <a href="https://twitter.com/{{.}}" target="_blank"> @{{.}}</a>
+    </span>
+    {{end}}
+
+    {{with $githubName}}
+    <span class="github-link icon-github">
+      <a href="https://github.com/{{.}}" target="_blank"> {{.}}</a>
+    </span>
+    {{end}}
   </div>
 </section>
 {{end}}
