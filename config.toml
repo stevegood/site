@@ -28,3 +28,7 @@ DisqusShortname = "stevegood"
   name = "About Me"
   url = "/about"
   weight = -180
+[[menu.main]]
+  name = "Deep Core"
+  url = "/deep_core"
+  weight = -140
