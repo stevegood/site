@@ -1,6 +1,6 @@
 title = "Steve Good"
 languageCode = "en-us"
-baseurl = "https://www.stevegood.rocks/"
+baseurl = "//www.stevegood.rocks/"
 theme = "casper"
 MetaDataFormat = "yaml"
 
